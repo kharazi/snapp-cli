@@ -1,0 +1,3 @@
+[submodule "mapscii"]
+	path = mapscii
+	url = https://github.com/kharazi/mapscii.git
