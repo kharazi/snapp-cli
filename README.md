@@ -1,9 +1,10 @@
-# snapp-cli 
+# Snapp Cli 
 
 
 [![asciicast](https://asciinema.org/a/4LMxOtcPPQDZQI8xpXdck1059.png)](https://asciinema.org/a/4LMxOtcPPQDZQI8xpXdck1059)
 
-privacy aware command-line interface to take an easy ride with Snapp like a boss.
+`snapp-cli` is a command-line interface for snapp that emphasizes your **PRIVACY**:)
+request a ride with Snapp like a boss!
 
 ## Installation
 
