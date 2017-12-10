@@ -2,8 +2,7 @@ import os.path
 import shelve
 import requests
 
-
-c_path = '/home/vahid/.config/snapp-cli/cook'
+c_path = os.path.expanduser("~") + '/.config/snapp-cli/cook'
 db = shelve.open(c_path)
 session = requests.session()
 
