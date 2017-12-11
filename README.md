@@ -1,9 +1,8 @@
-# Snapp Cli 
-
+# Snapp CLI
 
 [![asciicast](https://asciinema.org/a/4LMxOtcPPQDZQI8xpXdck1059.png)](https://asciinema.org/a/4LMxOtcPPQDZQI8xpXdck1059)
 
-`snapp-cli` is a command-line interface for [Snapp](https://en.wikipedia.org/wiki/Snapp_(company)) that emphasizes your **PRIVACY**:). request a ride with Snapp like a boss!
+`snapp-cli` is a command-line interface for [Snapp](https://en.wikipedia.org/wiki/Snapp_(company)) APIs that emphasizes your **PRIVACY**:). request a ride with Snapp like a boss!
 
 ## Installation
 
@@ -28,7 +27,7 @@ Commands:
   ride   Compelete this function to take a ride with...
 ```
 
-an example:
+for example to caclulate price of with geo points using this:
 
 ```
 $ python ride.py price --source 35.70071439856985 51.39509439468384 --destination 35.70364178950393 51.39932155609131
@@ -41,4 +40,8 @@ $ python ride.py price --source 35.70071439856985 51.39509439468384 --destinatio
 | اسنپ باکس | 30000 | 731      |
 | اسنپ بایک | 45000 | 731      |
 +-----------+-------+----------+
+```
+and for try it using command-line map type:
+```
+$ python ride.py ride --map
 ```

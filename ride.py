@@ -8,7 +8,7 @@ from terminaltables import AsciiTable
 from taxi import snapp
 
 
-config = '/home/vahid/.config/snapp-cli/'
+config = os.path.expanduser("~") + '/.config/snapp-cli/cook'
 if not os.path.exists(config):
     os.mkdir(config)
 

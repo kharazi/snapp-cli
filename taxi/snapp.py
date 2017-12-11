@@ -5,7 +5,7 @@ import pprint
 
 
 pp = pprint.PrettyPrinter(indent=4)
-c_path = '/home/vahid/.config/snapp-cli/cook'
+c_path = os.path.expanduser("~") + '/.config/snapp-cli/cook'
 db = shelve.open(c_path)
 session = requests.session()
 
