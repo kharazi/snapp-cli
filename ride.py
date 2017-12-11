@@ -3,6 +3,8 @@ import codecs
 import subprocess
 import click
 
+from terminaltables import AsciiTable
+
 from taxi import snapp
 
 
@@ -56,10 +58,9 @@ def price(source, destination, map):
     else:
         pass
     
-    r = snapp.ride(source[0], source[1], destination[0], destination[1])
-    click.echo("\n======================\n")
-    click.echo("Price: %d Rials\t Distance: %d" % r)
-    click.echo("\n======================\n")
+    r = snapp.price(source[0], source[1], destination[0], destination[1])
+    t = AsciiTable([['Service', 'Price', 'Distance']] + r)
+    click.echo(t.table)
 
 
 @click.command()
@@ -76,7 +77,7 @@ def ride():
     '''
     import time
     click.echo('Waiting...')
-    time.sleep(5)
+    time.sleep(2)
     click.echo('Find a driver')
 
 

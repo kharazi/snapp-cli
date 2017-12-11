@@ -1,8 +1,10 @@
 import os.path
 import shelve
 import requests
+import pprint
 
 
+pp = pprint.PrettyPrinter(indent=4)
 c_path = '/home/vahid/.config/snapp-cli/cook'
 db = shelve.open(c_path)
 session = requests.session()
@@ -23,7 +25,7 @@ def save_session(session, token):
     db.sync()
 
 
-def ride(origin_lat, origin_lng, destination_lat, destination_lng, rount_trip=0, waiting=0):
+def price(origin_lat, origin_lng, destination_lat, destination_lng, rount_trip=0, waiting=0):
     data = {
         'origin_lat': origin_lat,
         'origin_lng': origin_lng,
@@ -44,8 +46,14 @@ def ride(origin_lat, origin_lng, destination_lat, destination_lng, rount_trip=0,
         headers=headers)
     
     if r.status_code >= 200 or r.status_code < 300:
-        res = r.json()['prices'][0]
-        return(res['final'], res['distance'])
+        res = r.json()['prices']
+        return [
+            [
+                s['service']['name'],
+                s['final'],
+                s['distance'],
+            ] for s in res
+        ]
     else:
         return False
 
