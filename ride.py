@@ -8,7 +8,7 @@ from terminaltables import AsciiTable
 from taxi import snapp
 
 
-config = os.path.expanduser("~") + '/.config/snapp-cli/cook'
+config = os.path.join(os.path.expanduser("~") + '/.config/snapp-cli/')
 if not os.path.exists(config):
     os.mkdir(config)
 
@@ -59,8 +59,19 @@ def price(source, destination, map):
         pass
     
     r = snapp.price(source[0], source[1], destination[0], destination[1])
-    t = AsciiTable([['Service', 'Price', 'Distance']] + r)
+    t = AsciiTable([['S', 'Description', 'Price']] + r)
+    click.echo('\n')
     click.echo(t.table)
+
+    service_number = click.prompt('Please send your chosen service number', type=int)
+    request_ride(service_number)
+
+   
+def request_ride(serivce_nubmer):
+    import time
+    click.echo('Waiting...')
+    time.sleep(2)
+    click.echo('Find a driver')
 
 
 @click.command()
@@ -75,10 +86,7 @@ def ride():
 
     Your homework
     '''
-    import time
-    click.echo('Waiting...')
-    time.sleep(2)
-    click.echo('Find a driver')
+    request_ride(0)
 
 
 cli.add_command(login)

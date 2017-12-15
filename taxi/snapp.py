@@ -49,10 +49,10 @@ def price(origin_lat, origin_lng, destination_lat, destination_lng, rount_trip=0
         res = r.json()['prices']
         return [
             [
+                index,
                 s['service']['name'],
                 s['final'],
-                s['distance'],
-            ] for s in res
+            ] for index, s in enumerate(res)
         ]
     else:
         return False
